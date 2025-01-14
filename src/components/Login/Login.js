@@ -27,7 +27,7 @@ function Login() {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((auth) => {
-        // it successfully created a new user with email and password
+        
         if (auth) {
           navigate('/');
         }
@@ -77,7 +77,7 @@ function Login() {
           Interest-Based Ads Notice.
         </p>
 
-        {/* Wrap the button in a Link component */}
+        
         <Link to="/register">
           <button className="login__registerButton">
             Create your Amazon Account

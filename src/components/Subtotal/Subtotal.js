@@ -8,16 +8,15 @@ function Subtotal() {
   const navigate = useNavigate();
   const [{ basket }, dispatch] = useStateValue();
 
-  // Calculate total and handle NaN
   let total = getBasketTotal(basket);
   if (isNaN(total)) {
     console.error("Invalid total calculated:", total);
-    total = 0; // Set a default value or display an error message
+    total = 0;
   }
 
   const formattedTotal = new Intl.NumberFormat("en-ZA", {
     style: "currency",
-    currency: "ZAR", // Use ZAR for South African Rand
+    currency: "ZAR",
   }).format(total);
 
   return (
