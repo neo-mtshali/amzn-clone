@@ -27,12 +27,10 @@ function Payment() {
     setProcessing(true);
 
     if (!stripe || !elements) {
-      // Stripe.js hasn't loaded yet.
       return;
     }
 
     try {
-      // Fetch client secret when the form is submitted
       const response = await axios({
         method: "post",
         url: `http://localhost:4242/create-payment-intent`,
@@ -51,10 +49,8 @@ function Payment() {
         },
       });
 
-      // PaymentIntent = payment confirmation
       console.log("Payment confirmed:", paymentIntent);
 
-      // Add order to Firestore
       const ordersRef = collection(db, "users", user?.uid, "orders");
       await setDoc(doc(ordersRef, paymentIntent.id), {
         basket: basket,

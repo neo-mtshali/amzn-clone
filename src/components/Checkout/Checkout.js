@@ -21,7 +21,7 @@ function Checkout() {
           <h2 className="checkout__title">Your shopping Basket</h2>
 
           {basket.map(item => {
-            console.log("Item in basket:", item); // Check the rating value here
+            console.log("Item in basket:", item); 
             return (
               <CheckoutProduct
                 key={item.id}

@@ -10,7 +10,7 @@
     z-index: 1;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.2s ease-in-out;
-    flex: 1; /* Allow the product to take up equal amount of space */
+    flex: 1;
     min-height: 300px;
     max-height: 400px;
   }
@@ -18,21 +18,21 @@
   @media (max-width: 768px) {
     .product {
       min-width: 150px;
-      min-height: 250px; /* Adjust for smaller screens */
+      min-height: 250px;
     }
   }
   
   @media (min-width: 768px) and (max-width: 1200px) {
     .product {
       min-width: 200px;
-      min-height: 300px; /* Adjust for medium screens */
+      min-height: 300px;
     }
   }
   
   @media (min-width: 1200px) {
     .product {
       min-width: 250px;
-      min-height: 350px; /* Adjust for large screens */
+      min-height: 350px;
     }
   }
   
@@ -41,7 +41,7 @@
   }
   
   .product > img {
-    max-height: 150px; /* Adjust as needed */
+    max-height: 150px;
     width: 100%;
     object-fit: contain;
     margin-bottom: 15px;
@@ -60,8 +60,8 @@
   
   .product__price {
     margin-top: 5px;
-    font-size: 1.2em; /* Make price more prominent */
-    font-weight: bold; /* Make price more prominent */
+    font-size: 1.2em;
+    font-weight: bold;
   }
   
   .product__info {
@@ -73,22 +73,22 @@
   .product__rating {
     display: flex;
     margin-top: 5px;
-    align-items: center; /* Align items to center */
+    align-items: center;
   }
   
   .product__rating p {
     color: #ffa41c;
-    margin: 0 2px; /* Add some space between stars */
-    font-size: 1.2em; /* Make stars more prominent */
+    margin: 0 2px;
+    font-size: 1.2em;
   }
   
   .product__rating span {
-    font-size: 0.9em; /* Make the rating number smaller */
-    color: #555; /* Lighter color for the rating number */
-    margin-left: 5px; /* Add some space between stars and number */
+    font-size: 0.9em;
+    color: #555;
+    margin-left: 5px;
   }
 
   .product__star {
-    color: #ffa41c; /* Amazon yellow color */
+    color: #ffa41c;
     margin: 0;
   }
