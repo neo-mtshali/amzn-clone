@@ -1,16 +1,14 @@
-// reducer.js
 export const initialState = {
     basket: [],
     user: null,
   };
   
-  // Selector
   export const getBasketTotal = (basket) => {
-    console.log("Basket:", basket); // Log the entire basket
+    console.log("Basket:", basket); 
     return basket?.reduce((amount, item) => {
-      console.log("Item:", item, "Current Amount:", amount); // Log each item
+      console.log("Item:", item, "Current Amount:", amount); 
       const price = Number(item.price);
-      console.log("Price (converted):", price); // Log the converted price
+      console.log("Price (converted):", price); 
       if (isNaN(price)) {
         console.error(`Invalid price for item: ${item.id}, price: ${item.price}`);
         return amount;
@@ -23,7 +21,7 @@ export const initialState = {
     console.log(action);
     switch (action.type) {
       case "ADD_TO_BASKET":
-        console.log("Adding to basket:", action.item); // Log the item being added
+        console.log("Adding to basket:", action.item); 
         return {
           ...state,
           basket: [...state.basket, action.item],

@@ -5,7 +5,7 @@ import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
-const AMAZON_YELLOW = "#ffa41c"; // Define the Amazon yellow color
+const AMAZON_YELLOW = "#ffa41c";
 
 function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
   const [{ basket }, dispatch] = useStateValue();
@@ -20,7 +20,7 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
   const renderRatingStars = () => {
     if (typeof rating !== "number" || rating < 0 || rating > 5) {
       console.error("Invalid rating value:", rating);
-      return null; // Or return a default rating display
+      return null;
     }
 
     const fullStars = Math.floor(rating);

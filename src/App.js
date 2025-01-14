@@ -13,7 +13,7 @@ import { auth } from './firebase';
 import { useStateValue } from './context/StateProvider';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import NotFound from './components/NotFound/NotFound'; // Import NotFound
+import NotFound from './components/NotFound/NotFound'; 
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
@@ -59,7 +59,7 @@ function App() {
           <Route path="/" element={<><Header /><Home /><Footer /></>} />
           <Route path="/register" element={<Register />} />
 
-          {/* Catch-all route for 404 */}
+         
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

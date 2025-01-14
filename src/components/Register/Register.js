@@ -30,7 +30,6 @@ function Register() {
         password
       );
 
-      // Update user profile (optional)
       await updateProfile(user, {
         displayName: name,
       });

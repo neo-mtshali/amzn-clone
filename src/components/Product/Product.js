@@ -5,7 +5,6 @@ import StarIcon from "@mui/icons-material/Star";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
-// Define the Amazon yellow color as a constant
 const AMAZON_YELLOW = "#ffa41c";
 
 function Product({ id, title, image, price, rating }) {

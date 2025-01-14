@@ -8,7 +8,7 @@ function NotFound() {
       <div className="not-found__container">
         <img
           className="not-found__logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" // Or your logo
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png" 
           alt="Amazon Logo"
         />
         <h2>SORRY</h2>
