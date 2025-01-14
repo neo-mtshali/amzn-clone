@@ -1,42 +1,44 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import './Register.css';
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import "./Register.css";
 
 function Register() {
   const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    // Basic validation (you should add more robust validation)
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError("Passwords do not match.");
       return;
     }
 
-    // Create user with email and password using Firebase
-    auth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Update user profile with display name (optional)
-        userCredential.user.updateProfile({
-          displayName: name,
-        })
-          .then(() => {
-            // Navigate to home page after successful registration
-            navigate('/');
-          })
-          .catch((error) => setError(error.message));
-      })
-      .catch((error) => {
-        setError(error.message);
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Update user profile (optional)
+      await updateProfile(user, {
+        displayName: name,
       });
+
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -108,11 +110,9 @@ function Register() {
           <h5>Buying for work?</h5>
         </div>
 
-   
-          <button className="register__businessButton">
-            Create a free business account
-          </button>
-       
+        <button className="register__businessButton">
+          Create a free business account
+        </button>
 
         <div className="register__divider">
           <h5>Already have an account?</h5>

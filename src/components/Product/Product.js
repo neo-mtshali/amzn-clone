@@ -1,9 +1,12 @@
 import React from "react";
 import "./Product.css";
 import { useStateValue } from "../../context/StateProvider";
-import StarIcon from '@mui/icons-material/Star';
-import StarHalfIcon from '@mui/icons-material/StarHalf';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
+import StarIcon from "@mui/icons-material/Star";
+import StarHalfIcon from "@mui/icons-material/StarHalf";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
+
+// Define the Amazon yellow color as a constant
+const AMAZON_YELLOW = "#ffa41c";
 
 function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
@@ -28,13 +31,22 @@ function Product({ id, title, image, price, rating }) {
 
     const stars = [];
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<StarIcon key={`star-full-${i}`} className="product__star" />);
+      stars.push(
+        <StarIcon key={`star-full-${i}`} className="product__star" />
+      );
     }
     if (hasHalfStar) {
-      stars.push(<StarHalfIcon key="star-half" className="product__star" />);
+      stars.push(
+        <StarHalfIcon key="star-half" className="product__star" />
+      );
     }
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<StarOutlineIcon key={`star-empty-${i}`} className="product__star" />);
+      stars.push(
+        <StarOutlineIcon
+          key={`star-empty-${i}`}
+          className="product__star"
+        />
+      );
     }
 
     return stars;

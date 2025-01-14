@@ -6,6 +6,22 @@
     max-width: 1500px; /* Adjust this value based on your design */
   }
   
+  .home__banner {
+    position: relative;
+  }
+  
+  .home__shippingText {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
   .home__row {
     display: flex;
     z-index: 1;

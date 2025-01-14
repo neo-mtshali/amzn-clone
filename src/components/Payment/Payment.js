@@ -22,31 +22,39 @@ function Payment() {
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
 
-  useEffect(() => {
-    const getClientSecret = async () => {
-      const response = await axios({
-        method: "post",
-        url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
-      });
-      setClientSecret(response.data.clientSecret);
-    };
-
-    getClientSecret();
-  }, [basket]);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true);
 
+    if (!stripe || !elements) {
+      // Stripe.js hasn't loaded yet.
+      return;
+    }
+
     try {
+      // Fetch client secret when the form is submitted
+      const response = await axios({
+        method: "post",
+        url: `http://localhost:4242/create-payment-intent`,
+        data: {
+          amount: getBasketTotal(basket) * 100,
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const clientSecret = response.data.clientSecret;
+
       const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
         },
       });
 
+      // PaymentIntent = payment confirmation
       console.log("Payment confirmed:", paymentIntent);
 
+      // Add order to Firestore
       const ordersRef = collection(db, "users", user?.uid, "orders");
       await setDoc(doc(ordersRef, paymentIntent.id), {
         basket: basket,
@@ -75,9 +83,9 @@ function Payment() {
     setError(event.error ? event.error.message : "");
   };
 
-  const formattedTotal = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const formattedTotal = new Intl.NumberFormat("en-ZA", {
+    style: "currency",
+    currency: "ZAR",
   }).format(getBasketTotal(basket));
 
   return (
@@ -87,7 +95,6 @@ function Payment() {
           Checkout (<Link to="/checkout">{basket?.length} items</Link>)
         </h1>
 
-        {/* Payment section - delivery address */}
         <div className="payment__section">
           <div className="payment__title">
             <h3>Delivery Address</h3>
@@ -95,11 +102,10 @@ function Payment() {
           <div className="payment__address">
             <p>{user?.email}</p>
             <p>123 React Lane</p>
-            <p>Los Angeles, CA</p>
+            <p>Gauteng, ZA</p>
           </div>
         </div>
 
-        {/* Payment section - Review Items */}
         <div className="payment__section">
           <div className="payment__title">
             <h3>Review items and delivery</h3>
@@ -118,14 +124,12 @@ function Payment() {
           </div>
         </div>
 
-        {/* Payment section - Payment method */}
         <div className="payment__section">
           <div className="payment__title">
             <h3>Payment Method</h3>
           </div>
           <div className="payment__details">
-            {/* Stripe magic will go here */}
-
+            {error && <div className="payment__error">{error}</div>}
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
 
@@ -135,9 +139,6 @@ function Payment() {
                   <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
               </div>
-
-              {/* Errors */}
-              {error && <div>{error}</div>}
             </form>
           </div>
         </div>
