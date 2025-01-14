@@ -1,11 +1,11 @@
 .header {
-    height: 60px;
+    background-color: #131921; /* Dark background */
     display: flex;
     align-items: center;
-    background-color: #131921;
     position: sticky;
     top: 0;
     z-index: 100;
+    padding: 10px 15px; /* Add some padding */
   }
   
   .header__logo {
@@ -17,27 +17,33 @@
   
   .header__search {
     display: flex;
-    flex: 1;
+    flex: 1; /* Allow search bar to take up more space */
+    height: 40px;
     align-items: center;
-    border-radius: 24px;
+    border-radius: 4px; /* Rounded corners for search bar */
+    overflow: hidden; /* Ensure child elements don't overflow */
   }
   
   .header__searchInput {
-    height: 12px;
+    height: 40px;
     padding: 10px;
     border: none;
     width: 100%;
+    font-size: 16px; /* Increase font size */
   }
   
   .header__searchIcon {
     padding: 5px;
-    height: 22px !important;
-    background-color: #cd9042;
+    height: 30px !important;
+    width: 40px !important;
+    background-color: #febd69; /* Orange search icon background */
+    color: #131921; /* Dark text color for icon */
   }
   
   .header__nav {
     display: flex;
     justify-content: space-evenly;
+    margin-left: 20px; /* Add margin to separate from search bar */
   }
   
   .header__option {
@@ -46,24 +52,55 @@
     margin-left: 10px;
     margin-right: 10px;
     color: white;
+    font-size: 13px;
   }
   
   .header__optionLineOne {
-    font-size: 10px;
+    font-size: 12px;
+    color: #ccc; /* Lighter color for top line */
   }
   
   .header__optionLineTwo {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
+    color: white;
   }
   
   .header__optionBasket {
     display: flex;
     align-items: center;
     color: white;
+    margin-left: 15px; /* Add margin to separate from other links */
   }
   
   .header__basketCount {
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  
+  .header__delivery {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .header__locationIcon {
+    color: #ccc;
+    margin-right: 5px;
+  }
+  
+  .header__optionBasket {
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-left: 15px; /* Add margin to separate from other links */
+  }
+  
+  .header__basketCount {
+    margin-left: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
   }

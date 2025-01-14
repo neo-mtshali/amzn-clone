@@ -2,23 +2,46 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Align items to start and end of container */
+    justify-content: space-between;
     margin: 10px;
     padding: 20px;
     width: 100%;
-    min-height: 350px; /* Adjust this value based on your content */
     background-color: white;
     z-index: 1;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: box-shadow 0.2s ease-in-out; /* Smooth transition for hover effect */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+    flex: 1; /* Allow the product to take up equal amount of space */
+    min-height: 300px;
+    max-height: 400px;
+  }
+  
+  @media (max-width: 768px) {
+    .product {
+      min-width: 150px;
+      min-height: 250px; /* Adjust for smaller screens */
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1200px) {
+    .product {
+      min-width: 200px;
+      min-height: 300px; /* Adjust for medium screens */
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .product {
+      min-width: 250px;
+      min-height: 350px; /* Adjust for large screens */
+    }
   }
   
   .product:hover {
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   }
   
   .product > img {
-    max-height: 200px; /* Adjust this value based on your design */
+    max-height: 150px; /* Adjust as needed */
     width: 100%;
     object-fit: contain;
     margin-bottom: 15px;
@@ -30,27 +53,42 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
-    padding: 8px 15px; /* Add padding to button */
+    padding: 8px 15px;
     cursor: pointer;
-    align-self: flex-end; /* Align button to the end */
+    align-self: flex-end;
   }
   
   .product__price {
     margin-top: 5px;
+    font-size: 1.2em; /* Make price more prominent */
+    font-weight: bold; /* Make price more prominent */
   }
   
   .product__info {
-    width: 100%; /* Make product info take up full width */
+    width: 100%;
     margin-bottom: 15px;
-    text-align: left; /* Align text to the left */
+    text-align: left;
   }
   
   .product__rating {
     display: flex;
     margin-top: 5px;
+    align-items: center; /* Align items to center */
   }
   
   .product__rating p {
-    color: #ffa41c; /* Orange color for stars */
-    margin: 0; /* Remove default margin */
+    color: #ffa41c;
+    margin: 0 2px; /* Add some space between stars */
+    font-size: 1.2em; /* Make stars more prominent */
+  }
+  
+  .product__rating span {
+    font-size: 0.9em; /* Make the rating number smaller */
+    color: #555; /* Lighter color for the rating number */
+    margin-left: 5px; /* Add some space between stars and number */
+  }
+
+  .product__star {
+    color: #ffa41c; /* Amazon yellow color */
+    margin: 0;
   }

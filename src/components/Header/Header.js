@@ -1,10 +1,11 @@
 import React from "react";
 import "./Header.css";
 import SearchIcon from "@mui/icons-material/Search";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"; // Update the basket icon
 import { Link } from "react-router-dom";
 import { useStateValue } from "../../context/StateProvider";
 import { auth } from "../../firebase";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -21,11 +22,24 @@ function Header() {
         <img
           className="header__logo"
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          alt="Amazon Logo"
         />
       </Link>
 
+      <div className="header__delivery">
+        <LocationOnOutlinedIcon className="header__locationIcon" />
+        <div className="header__option">
+          <span className="header__optionLineOne">Deliver to</span>
+          <span className="header__optionLineTwo">South Africa</span>
+        </div>
+      </div>
+
       <div className="header__search">
-        <input className="header__searchInput" type="text" />
+        <input
+          className="header__searchInput"
+          type="text"
+          placeholder="Search Amazon.co.za"
+        />
         <SearchIcon className="header__searchIcon" />
       </div>
 
@@ -55,10 +69,8 @@ function Header() {
 
         <Link to="/checkout">
           <div className="header__optionBasket">
-            <ShoppingBasketIcon />
-            <span className="header__optionLineTwo header__basketCount">
-              {basket?.length}
-            </span>
+            <ShoppingCartIcon /> {/* Updated basket icon */}
+            <span className="header__basketCount">{basket?.length}</span>
           </div>
         </Link>
       </div>
