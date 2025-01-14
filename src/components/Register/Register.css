@@ -1,0 +1,148 @@
+.register {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .register__logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .register__container {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+  
+  .register__container > h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  .register__container > form > h5 {
+    margin-bottom: 5px;
+  }
+  
+  .register__container > form > input {
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 98%;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    padding: 3px 7px;
+    outline: none;
+  }
+  
+  .register__container > form > input:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+  }
+  
+  .register__passwordInfo {
+    margin-top: -5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #555;
+  }
+  
+  .register__registerButton {
+    background: #f0c14b;
+    border-radius: 5px;
+    width: 100%;
+    height: 35px;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .register__error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .register__terms {
+    margin-top: 15px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  .register__terms a {
+    color: #0066c0;
+    text-decoration: none;
+  }
+  
+  .register__terms a:hover {
+    text-decoration: underline;
+  }
+  
+  .register__divider {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    line-height: 0.1em;
+    margin: 25px 0;
+  }
+  
+  .register__divider h5 {
+    background: #fff;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #555;
+  }
+  
+  .register__businessButton {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #a6a6a6;
+    border-radius: 5px;
+    background-color: #e7e9ec;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .register__signInButton {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #a6a6a6;
+    border-radius: 5px;
+    background-color: #e7e9ec;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .register__footer {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .register__footer a {
+    color: #0066c0;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 0 10px;
+  }
+  
+  .register__footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .register__copyright {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+  }
